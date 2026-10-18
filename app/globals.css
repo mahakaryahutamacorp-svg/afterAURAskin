@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 98%;
+    --foreground: 24 10% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 12%;
+
+    --primary: 38 45% 55%;
+    --primary-foreground: 40 33% 98%;
+
+    --secondary: 36 30% 94%;
+    --secondary-foreground: 24 10% 18%;
+
+    --muted: 36 26% 93%;
+    --muted-foreground: 28 12% 42%;
+
+    --accent: 38 42% 58%;
+    --accent-foreground: 40 33% 98%;
+
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 40 33% 98%;
+
+    --border: 36 24% 88%;
+    --input: 36 24% 88%;
+    --ring: 38 45% 55%;
+
+    --radius: 0.75rem;
+
+    --chart-1: 38 45% 55%;
+    --chart-2: 36 30% 80%;
+    --chart-3: 28 12% 42%;
+    --chart-4: 40 33% 98%;
+    --chart-5: 36 24% 88%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'ss01', 'liga';
+  }
+  ::selection {
+    background: hsl(38 45% 55% / 0.25);
+    color: hsl(24 10% 10%);
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
+  .font-sans {
+    font-family: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .tracking-luxe {
+    letter-spacing: 0.28em;
+  }
+  .tracking-wide-luxe {
+    letter-spacing: 0.18em;
+  }
+
+  .gold-line {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(38 45% 55% / 0.8),
+      transparent
+    );
+  }
+
+  .glass-panel {
+    background: hsl(40 33% 99% / 0.6);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .canvas-stage {
+    background:
+      radial-gradient(
+        ellipse at 50% 40%,
+        hsl(38 50% 92% / 0.9) 0%,
+        hsl(36 30% 95% / 0.4) 45%,
+        transparent 70%
+      );
+  }
+
+  .reveal-mask {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 12%,
+      black 88%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 12%,
+      black 88%,
+      transparent 100%
+    );
+  }
+}
+
+/* GSAP-friendly initial states (progressively enhanced) */
+.gsap-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gsap-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(36 30% 95%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(38 40% 70%);
+  border-radius: 999px;
+  border: 2px solid hsl(36 30% 95%);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(38 45% 60%);
+}
